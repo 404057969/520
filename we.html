@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我们</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF4B91',
+            secondary: '#FFC2D1',
+            accent: '#FF85A2',
+            dark: '#2A2F4F',
+            light: '#FDE2F3',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      .animate-float-slow {
+        animation: float 8s ease-in-out infinite;
+      }
+      .animate-float-fast {
+        animation: float 4s ease-in-out infinite;
+      }
+      .animate-appear {
+        animation: appear 0.8s ease-out forwards;
+      }
+      .animate-fade-in {
+        animation: fadeIn 1.5s ease-out forwards;
+      }
+      .animate-slide-up {
+        animation: slideUp 1s ease-out forwards;
+      }
+      .animate-scale {
+        animation: scale 0.5s ease-out forwards;
+      }
+      .animate-slide-in {
+        animation: slideIn 0.7s ease-out forwards;
+      }
+      .animate-pulse-slow {
+        animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      .gift-lid-open {
+        transform: rotateX(-110deg) translateY(-30px);
+      }
+      .gift-box-open {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes appear {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes scale {
+      0% { transform: scale(0.95); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    @keyframes slide-in-left {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slide-in-right {
+      0% {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body class="font-inter bg-gradient-to-br from-light to-white min-h-screen overflow-x-hidden">
+  <!-- 导航栏 -->
+  <nav id="mainNav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#page1" class="text-2xl font-bold text-primary hover:text-accent transition-colors">
+        <i class="fa fa-heart mr-2"></i>我们
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#page1" class="text-dark hover:text-primary transition-colors">首页</a>
+        <a href="#page2" class="text-dark hover:text-primary transition-colors">回忆</a>
+        <a href="#page3" class="text-dark hover:text-primary transition-colors">故事</a>
+        <a href="#page4" class="text-dark hover:text-primary transition-colors">礼物</a>
+      </div>
+      <button id="menuBtn" class="md:hidden text-dark text-2xl">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <a href="#page1" class="text-dark hover:text-primary transition-colors py-2">首页</a>
+        <a href="#page2" class="text-dark hover:text-primary transition-colors py-2">回忆</a>
+        <a href="#page3" class="text-dark hover:text-primary transition-colors py-2">故事</a>
+        <a href="#page4" class="text-dark hover:text-primary transition-colors py-2">礼物</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 第一页：多张图片动态切换效果 -->
+  <section id="page1" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div id="hearts-container" class="absolute inset-0 z-0"></div>
+    
+    <div class="container mx-auto px-4 z-10 text-center">
+      <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold text-primary mb-8 text-shadow-lg opacity-0 animate-fade-in" style="animation-delay: 0.3s">
+        520快乐，<span class="text-accent">一然bb</span>
+      </h1>
+      
+      <div class="relative w-full max-w-2xl mx-auto my-12 opacity-0 animate-appear" style="animation-delay: 0.6s">
+        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 transform transition-all hover:shadow-2xl">
+          <!-- 左侧文字 -->
+          <div class="absolute left-0 top-1/2 transform -translate-y-1/2 p-4 opacity-0 animate-slide-in-left" style="animation-delay: 1s; width: 20%;">
+            <p class="text-primary text-lg">左边的浪漫话语</p>
+          </div>
+          <!-- 图片轮播 -->
+          <div id="imageCarousel" class="relative overflow-hidden">
+            <div id="carouselInner" class="flex transition-transform duration-500">
+              <img src="photo/1.jpg" alt="照片1" class="w-full h-auto">
+              <img src="photo/2.jpg" alt="照片2" class="w-full h-auto">
+              <img src="photo/4.jpg" alt="照片3" class="w-full h-auto">
+              <img src="photo/14.jpg" alt="照片4" class="w-full h-auto">
+            </div>
+            <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+              <button class="w-3 h-3 rounded-full bg-white opacity-100 carousel-indicator" data-index="0"></button>
+              <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-indicator" data-index="1"></button>
+              <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-indicator" data-index="2"></button>
+              <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-indicator" data-index="3"></button>
+            </div>
+          </div>
+          <!-- 右侧文字 -->
+          <div class="absolute right-0 top-1/2 transform -translate-y-1/2 p-4 opacity-0 animate-slide-in-right" style="animation-delay: 1s; width: 20%;">
+            <p class="text-primary text-lg">右边的浪漫话语</p>
+          </div>
+          <!-- 图片上传按钮 -->
+          <div class="flex flex-wrap gap-4 justify-center">
+            <label for="imageUpload" class="cursor-pointer bg-primary hover:bg-accent text-white font-medium py-3 px-6 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <i class="fa fa-upload mr-2"></i>上传照片
+            </label>
+            <input id="imageUpload" type="file" accept="image/*" multiple class="hidden">
+          </div>
+        </div>
+      </div>
+      
+      <a href="#page2" class="inline-block bg-dark hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 opacity-0 animate-slide-up" style="animation-delay: 0.9s">
+        <i class="fa fa-arrow-down mr-2"></i>回忆我们的故事
+      </a>
+    </div>
+    
+    <div class="absolute bottom-10 left-0 right-0 text-center">
+      <a href="#page2" class="text-primary text-3xl animate-bounce inline-block">
+        <i class="fa fa-angle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- 第二页：视频上传和播放功能 -->
+  <section id="page2" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dark to-black">
+    <canvas id="fireworks" class="absolute inset-0 z-0"></canvas>
+    
+    <div class="container mx-auto px-4 z-10 text-center">
+      <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white mb-12 text-shadow-lg opacity-0 animate-fade-in" style="animation-delay: 0.3s">
+        我们的<span class="text-primary">回忆</span>
+      </h2>
+      
+      <div class="relative w-full max-w-4xl mx-auto my-8 opacity-0 animate-appear" style="animation-delay: 0.6s">
+        <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-6 md:p-8 shadow-xl border border-white/20">
+          <!-- 视频播放器 -->
+          <div id="videoContainer" class="aspect-video rounded-xl overflow-hidden mb-6 shadow-lg relative">
+            <video id="memoryVideo" class="w-full h-full" poster="video/123.mp4" style="width: 100%; height: 100%; object-fit: contain;" muted autoplay>
+              <source src="video/123.mp4" type="video/mp4">
+              您的浏览器不支持HTML5视频播放。
+            </video>
+            <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-4 z-10">
+              <button id="playVideoBtn" class="bg-white/50 hover:bg-white/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all">
+                <i class="fa fa-play"></i>
+              </button>
+              <button id="pauseVideoBtn" class="bg-white/50 hover:bg-white/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all">
+                <i class="fa fa-pause"></i>
+              </button>
+              <button id="videoSoundBtn" class="bg-white/50 hover:bg-white/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all">
+                <i class="fa fa-volume-mute"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="memoryPhotos" class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-12 opacity-0 animate-slide-up" style="animation-delay: 0.9s">
+        <div class="aspect-square rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-xl cursor-pointer group">
+          <img src="photo/11.jpg" alt="回忆照片" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        </div>
+        <div class="aspect-square rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-xl cursor-pointer group">
+          <img src="photo/7.jpg" alt="回忆照片" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        </div>
+                <div class="aspect-square rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-xl cursor-pointer group">
+          <img src="photo/10.jpg" alt="回忆照片" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        </div>
+        <!-- 其他图片 -->
+      </div>
+      
+      <a href="#page3" class="inline-block mt-16 bg-primary hover:bg-accent text-white font-medium py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 opacity-0 animate-slide-up" style="animation-delay: 1.2s">
+        <i class="fa fa-arrow-down mr-2"></i>展望我们的未来
+      </a>
+    </div>
+    
+    <div class="absolute bottom-10 left-0 right-0 text-center">
+      <a href="#page3" class="text-primary text-3xl animate-bounce inline-block">
+        <i class="fa fa-angle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- 第三页：未来展望 -->
+  <section id="page3" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div id="hearts-container-page3" class="absolute inset-0 z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-light to-secondary opacity-30"></div>
+    
+    <div class="container mx-auto px-4 z-10">
+      <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-dark mb-8 text-center text-shadow opacity-0 animate-fade-in" id="page3Title">
+        我们的<span class="text-primary">故事</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
+        <div class="opacity-0 animate-slide-up" id="page3Text">
+          <div class="bg-white rounded-2xl shadow-xl p-8 transform transition-all hover:shadow-2xl">
+            <h3 class="text-2xl font-bold text-primary mb-4">一起走向未来</h3>
+            <p class="text-dark text-lg leading-relaxed mb-6">
+              从相遇到相知，从相知到相恋，我们一起走过了许多美好的时光。未来的路还很长，但我知道，只要我们手牵手，就没有克服不了的困难。
+            </p>
+            <p class="text-dark text-lg leading-relaxed mb-6">
+              我想和你一起看日出日落，一起经历生活的酸甜苦辣，一起创造更多美好的回忆，我爱你，不仅是现在，更是未来的每一天。
+            </p>
+            <div class="mt-8">
+            <div class="flex items-center mb-4">
+           <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                  <img src="photo/13.jpg" alt="我的照片" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <p class="font-bold text-dark">你的bb</p>
+                  <p class="text-sm text-gray-500">2025年5月20日</p>
+                </div>
+</div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 opacity-0 animate-slide-up" id="page3Images">
+          <div class="aspect-square rounded-xl overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-xl animate-float-slow" style="animation-delay: 0.3s">
+            <img src="photo/9.jpg" alt="未来照片" class="w-full h-full object-cover">
+          </div>
+          <div class="aspect-square rounded-xl overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-xl animate-float" style="animation-delay: 0.6s">
+            <img src="photo/8.jpg" alt="未来照片" class="w-full h-full object-cover">
+          </div>
+          <div class="aspect-square rounded-xl overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-xl animate-float" style="animation-delay: 0.9s">
+            <img src="photo/5.jpg" alt="未来照片" class="w-full h-full object-cover">
+          </div>
+          <div class="aspect-square rounded-xl overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-xl animate-float-slow" style="animation-delay: 1.2s">
+            <img src="photo/3.jpg" alt="未来照片" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-20 opacity-0 animate-slide-up" id="page3Footer">
+        <a href="#page4" class="inline-block bg-dark hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <i class="fa fa-arrow-down mr-2"></i>打开我的礼物
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第四页：小礼物页面 -->
+  <section id="page4" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-100 to-purple-100">
+    <canvas id="fireworks-page4" class="absolute inset-0 z-0"></canvas>
+    <div class="absolute inset-0">
+      <!-- 装饰元素 -->
+      <div class="absolute top-10 left-10 w-20 h-20 bg-primary/10 rounded-full blur-2xl animate-float"></div>
+      <div class="absolute bottom-20 right-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl animate-float-slow"></div>
+      <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-secondary/20 rounded-full blur-xl animate-float-fast"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 z-10">
+      <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-dark mb-8 text-center text-shadow opacity-0 animate-fade-in" id="page4Title">
+        送你的<span class="text-primary">小礼物</span>
+      </h2>
+      
+      <div class="flex flex-col md:flex-row items-center justify-center gap-12 mt-16">
+        <!-- 礼物盒子 -->
+        <div class="w-full max-w-md relative opacity-0 animate-appear" id="page4GiftBox">
+          <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl relative cursor-pointer" id="giftContainer">
+            <!-- 礼物盖子 -->
+            <div id="giftLid" class="absolute inset-0 bg-gradient-to-br from-primary to-accent flex flex-col items-center justify-center z-20 transition-transform duration-700 origin-top">
+              <i class="fa fa-gift text-8xl text-white mb-6 animate-pulse-slow"></i>
+              <h3 class="text-3xl font-bold text-white">点击打开礼物</h3>
+              <p class="text-white/80 mt-2">一份特别的惊喜等待着你</p>
+            </div>
+            
+            <!-- 礼物内容 -->
+            <div id="giftContent" class="absolute inset-0 bg-white flex flex-col items-center justify-center p-8 z-10 opacity-0 transition-opacity duration-500">
+              <h3 class="text-2xl font-bold text-primary mb-4">小小的礼物</h3>
+              <div class="mt-4 w-full h-64 rounded-xl overflow-hidden shadow-lg animate-scale">
+                <img src="photo/12.jpg" alt="爱的礼物" class="w-full h-full object-cover">
+              </div>
+              <p class="text-dark text-lg leading-relaxed text-center mt-6">
+                这是很早之前就想好的礼物，但是不知道你喜不喜欢，小小的礼物给大大的你，嘻嘻爱你
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 礼物信息 -->
+        <div class="w-full max-w-lg opacity-0 animate-slide-in" id="page4GiftMessage">
+          <div class="bg-white rounded-2xl shadow-xl p-8 transform transition-all hover:shadow-2xl">
+            <h3 class="text-2xl font-bold text-primary mb-4">特别的你，特别的礼物</h3>
+            <p class="text-dark text-lg leading-relaxed mb-6">
+              一然bb，这份礼物是我用心为你准备的，希望它能带给你快乐和温暖，就像你带给我的一样。
+            </p>
+            <p class="text-dark text-lg leading-relaxed mb-6">
+              每一天和你在一起都是最美好的时光，我珍惜我们共同创造的每一个回忆。
+            </p>
+            <div class="mt-8 flex items-center justify-center">
+              <button class="bg-primary hover:bg-accent text-white font-bold py-4 px-10 rounded-full text-xl transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                <i class="fa fa-heart mr-2"></i>爱你哟
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-20 opacity-0 animate-slide-up" id="page4Footer">
+        <a href="#page1" class="inline-block bg-dark hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <i class="fa fa-arrow-up mr-2"></i>回到首页
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-4">命运的轨迹重合在人生的漫漫长路上</p>
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="#" class="text-white hover:text-primary transition-colors">
+          <i class="fa fa-heart text-xl"></i>
+        </a>
+        <a href="#" class="text-white hover:text-primary transition-colors">
+          <i class="fa fa-star text-xl"></i>
+        </a>
+        <a href="#" class="text-white hover:text-primary transition-colors">
+          <i class="fa fa-gift text-xl"></i>
+        </a>
+      </div>
+      <p class="text-sm text-gray-400">© 2025 3.31 | 我们的开始</p>
+    </div>
+  </footer>
+
+  <!-- 编辑回忆的模态框 -->
+  <div id="editModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" id="modalOverlay"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 mx-4 transform transition-all scale-95 opacity-0" id="modalContent">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-primary">编辑回忆</h3>
+        <button id="closeModal" class="text-gray-500 hover:text-dark transition-colors">
+          <i class="fa fa-times text-xl"></i>
+        </button>
+      </div>
+      <textarea id="memoryInput" class="w-full h-64 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary resize-none" placeholder="输入你们的美好回忆...">从相遇到相知，从相知到相恋，我们一起走过了许多美好的时光。未来的路还很长，但我知道，只要我们手牵手，就没有克服不了的困难。</textarea>
+      <div class="flex justify-end mt-6">
+        <button id="saveMemory" class="bg-primary hover:bg-accent text-white font-medium py-3 px-6 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <i class="fa fa-save mr-2"></i>保存回忆
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 背景音乐 -->
+  <div class="fixed bottom-4 right-4 z-50">
+    <audio id="backgroundMusic" loop autoplay>
+      <source src="music/心跳-王力宏-kw_459553.mp3" type="audio/mpeg">
+      您的浏览器不支持音频播放。
+    </audio>
+    <button id="musicToggleBtn" class="bg-primary hover:bg-accent text-white font-medium py-2 px-4 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 mt-2">
+      <i class="fa fa-pause"></i>
+    </button>
+    <label for="musicUpload" class="cursor-pointer bg-primary hover:bg-accent text-white font-medium py-2 px-4 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 mt-2">
+      <i class="fa fa-upload mr-2"></i>上传音乐
+    </label>
+    <input id="musicUpload" type="file" accept="audio/*" class="hidden">
+  </div>
+
+  <script>
+    // 爱心效果
+    function createHearts(containerId) {
+      const container = document.getElementById(containerId);
+      const colors = ['#FF4B91', '#FF85A2', '#FFC2D1', '#FFB3C6'];
+      
+      for (let i = 0; i < 100; i++) {
+        const heart = document.createElement('div');
+        const size = Math.random() * 20 + 10;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const duration = Math.random() * 10 + 10;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        heart.innerHTML = '<i class="fa fa-heart"></i>';
+        heart.className = 'absolute text-2xl';
+        heart.style.color = color;
+        heart.style.left = `${x}%`;
+        heart.style.top = `${y}%`;
+        heart.style.opacity = Math.random() * 0.8 + 0.2;
+        heart.style.transform = `scale(${size / 20})`;
+        heart.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        
+        container.appendChild(heart);
+      }
+    }
+
+    // 烟花效果
+    function createFireworks(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      
+      // 设置画布尺寸
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      
+      // 彩色烟花粒子
+      class Particle {
+        constructor(x, y, color) {
+          this.x = x;
+          this.y = y;
+          this.color = color;
+          this.radius = Math.random() * 3 + 1;
+          this.velocity = {
+            x: (Math.random() - 0.5) * 10,
+            y: (Math.random() - 0.5) * 13
+          };
+          this.gravity = 0.1;
+          this.friction = 0.95;
+          this.opacity = 1;
+        }
+        
+        update() {
+          this.velocity.y += this.gravity;
+          this.velocity.x *= this.friction;
+          this.velocity.y *= this.friction;
+          this.x += this.velocity.x;
+          this.y += this.velocity.y;
+          this.opacity -= 0.01;
+        }
+        
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+          ctx.fill();
+          ctx.closePath();
+        }
+      }
+      
+      // 烟花
+      class Firework {
+        constructor() {
+          this.reset();
+        }
+        
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = canvas.height;
+          this.targetY = Math.random() * canvas.height * 0.5;
+          
+          // 生成随机颜色
+          const colors = [
+            '255, 99, 71',    // 番茄红
+            '255, 165, 0',    // 橙色
+            '255, 215, 0',    // 金色
+            '144, 238, 144',  // 浅绿色
+            '70, 130, 180',   // 钢蓝色
+            '138, 43, 226',   // 蓝紫色
+            '255, 192, 203',  // 粉红色
+            '255, 255, 0',    // 黄色
+            '0, 255, 255',    // 青色
+            '255, 0, 255'     // 洋红色
+          ];
+          
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+          this.radius = 5;
+          this.velocity = {
+            x: 0,
+            y: Math.random() * 5 + 13
+          };
+          this.gravity = 0.2;
+          this.particles = [];
+          this.exploded = false;
+          this.opacity = 1;
+        }
+        
+        update() {
+          if (!this.exploded) {
+            this.velocity.y -= this.gravity;
+            this.y -= this.velocity.y;
+            
+            // 到达目标位置后爆炸
+            if (this.velocity.y <= 0) {
+              this.explode();
+              this.exploded = true;
+            }
+          } else {
+            // 更新所有粒子
+            for (let i = this.particles.length - 1; i >= 0; i--) {
+              this.particles[i].update();
+              
+              if (this.particles[i].opacity <= 0) {
+                this.particles.splice(i, 1);
+              }
+            }
+            
+            // 如果所有粒子都消失了，重置烟花
+            if (this.particles.length === 0) {
+              this.reset();
+            }
+          }
+        }
+        
+        explode() {
+          // 创建爆炸粒子
+          for (let i = 0; i < 100; i++) {
+            this.particles.push(new Particle(this.x, this.y, this.color));
+          }
+        }
+        
+        draw() {
+          if (!this.exploded) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+            ctx.fill();
+            ctx.closePath();
+          } else {
+            // 绘制所有粒子
+            for (let particle of this.particles) {
+              particle.draw();
+            }
+          }
+        }
+      }
+      
+      // 创建多个烟花
+      const fireworks = [];
+      for (let i = 0; i < 5; i++) {
+        fireworks.push(new Firework());
+      }
+      
+      // 动画循环
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (let firework of fireworks) {
+          firework.update();
+          firework.draw();
+        }
+      }
+      
+      animate();
+    }
+
+    // 图片轮播功能
+    function setupImageCarousel() {
+      const carouselInner = document.getElementById('carouselInner');
+      const carouselIndicators = document.querySelectorAll('.carousel-indicator');
+      const images = carouselInner.querySelectorAll('img');
+      let currentIndex = 0;
+      let autoplayInterval = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, 3000);
+      
+      // 鼠标悬停时暂停自动轮播
+      const carousel = document.getElementById('imageCarousel');
+      carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+      });
+      
+      // 鼠标离开时恢复自动轮播
+      carousel.addEventListener('mouseleave', () => {
+        autoplayInterval = setInterval(() => {
+          goToSlide(currentIndex + 1);
+        }, 3000);
+      });
+      
+      // 切换幻灯片
+      function goToSlide(index) {
+        if (index < 0) {
+          index = images.length - 1;
+        } else if (index >= images.length) {
+          index = 0;
+        }
+        
+        carouselInner.style.transform = `translateX(-${index * 100}%)`;
+        carouselIndicators.forEach((indicator, i) => {
+          if (i === index) {
+            indicator.classList.add('opacity-100');
+            indicator.classList.remove('opacity-50');
+          } else {
+            indicator.classList.add('opacity-50');
+            indicator.classList.remove('opacity-100');
+          }
+        });
+        currentIndex = index;
+      }
+      
+      // 指示器点击事件
+      carouselIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          goToSlide(index);
+        });
+      });
+      
+      // 图片上传功能
+      const imageUpload = document.getElementById('imageUpload');
+      imageUpload.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+          const reader = new FileReader();
+          
+          reader.onload = function(e) {
+            // 替换当前显示的图片
+            images[currentIndex].src = e.target.result;
+            
+            // 添加动画效果
+            images[currentIndex].classList.add('animate-scale');
+            setTimeout(() => {
+              images[currentIndex].classList.remove('animate-scale');
+            }, 500);
+          }
+          
+          reader.readAsDataURL(this.files[0]);
+        }
+      });
+    }
+
+    // 视频上传和播放功能
+    function setupVideoPlayer() {
+      const video = document.getElementById('memoryVideo');
+      const playBtn = document.getElementById('playVideoBtn');
+      const pauseBtn = document.getElementById('pauseVideoBtn');
+      const soundBtn = document.getElementById('videoSoundBtn');
+      const backgroundMusic = document.getElementById('backgroundMusic');
+
+      playBtn.addEventListener('click', () => {
+        video.play();
+      });
+
+      pauseBtn.addEventListener('click', () => {
+        video.pause();
+      });
+
+      soundBtn.addEventListener('click', () => {
+        if (video.muted) {
+          video.muted = false;
+          backgroundMusic.pause();
+          soundBtn.innerHTML = '<i class="fa fa-volume-up"></i>';
+        } else {
+          video.muted = true;
+          backgroundMusic.play();
+          soundBtn.innerHTML = '<i class="fa fa-volume-mute"></i>';
+        }
+      });
+    }
+
+    // 礼物盒子功能
+    function setupGiftBox() {
+      const giftLid = document.getElementById('giftLid');
+      const giftContent = document.getElementById('giftContent');
+      const giftContainer = document.getElementById('giftContainer');
+
+      giftContainer.addEventListener('click', () => {
+        giftLid.classList.add('gift-lid-open');
+        giftContent.classList.remove('opacity-0');
+        giftContainer.classList.add('gift-box-open');
+      });
+    }
+
+    // 背景音乐功能
+    function setupBackgroundMusic() {
+      const backgroundMusic = document.getElementById('backgroundMusic');
+      const musicUpload = document.getElementById('musicUpload');
+      const musicToggleBtn = document.getElementById('musicToggleBtn');
+      let isPlaying = true;
+
+      musicToggleBtn.addEventListener('click', () => {
+        if (isPlaying) {
+          backgroundMusic.pause();
+          musicToggleBtn.innerHTML = '<i class="fa fa-play"></i>';
+        } else {
+          backgroundMusic.play();
+          musicToggleBtn.innerHTML = '<i class="fa fa-pause"></i>';
+        }
+        isPlaying = !isPlaying;
+      });
+
+      musicUpload.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+          const musicFile = this.files[0];
+          const musicUrl = URL.createObjectURL(musicFile);
+
+          backgroundMusic.src = musicUrl;
+          backgroundMusic.load();
+          backgroundMusic.play();
+          isPlaying = true;
+          musicToggleBtn.innerHTML = '<i class="fa fa-pause"></i>';
+        }
+      });
+    }
+
+    // 移动端菜单
+    function setupMobileMenu() {
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuBtn.innerHTML = mobileMenu.classList.contains('hidden') ? 
+          '<i class="fa fa-bars"></i>' : 
+          '<i class="fa fa-times"></i>';
+      });
+      
+      // 点击菜单项后关闭菜单
+      const menuItems = mobileMenu.querySelectorAll('a');
+      menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+        });
+      });
+    }
+
+    // 平滑滚动
+    function setupSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    }
+
+    // 页面滚动动画
+    function handleScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+            entry.target.style.opacity = '1';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      const page3Title = document.getElementById('page3Title');
+      const page3Text = document.getElementById('page3Text');
+      const page3Images = document.getElementById('page3Images');
+      const page3Footer = document.getElementById('page3Footer');
+      
+      const page4Title = document.getElementById('page4Title');
+      const page4GiftBox = document.getElementById('page4GiftBox');
+      const page4GiftMessage = document.getElementById('page4GiftMessage');
+      const page4Footer = document.getElementById('page4Footer');
+      
+      if (page3Title) observer.observe(page3Title);
+      if (page3Text) observer.observe(page3Text);
+      if (page3Images) observer.observe(page3Images);
+      if (page3Footer) observer.observe(page3Footer);
+      
+      if (page4Title) observer.observe(page4Title);
+      if (page4GiftBox) observer.observe(page4GiftBox);
+      if (page4GiftMessage) observer.observe(page4GiftMessage);
+      if (page4Footer) observer.observe(page4Footer);
+      
+      // 导航栏滚动效果
+      const nav = document.getElementById('mainNav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('bg-white', 'shadow-md');
+          nav.classList.remove('bg-transparent');
+        } else {
+          nav.classList.remove('bg-white', 'shadow-md');
+          nav.classList.add('bg-transparent');
+        }
+      });
+    }
+
+    // 初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      createHearts('hearts-container');
+      createHearts('hearts-container-page3');
+      createFireworks('fireworks');
+      createFireworks('fireworks-page4');
+      handleScrollAnimations();
+      setupMobileMenu();
+      setupSmoothScroll();
+      setupImageCarousel();
+      setupVideoPlayer();
+      setupGiftBox();
+      setupBackgroundMusic();
+    });
+  </script>
+</body>
+</html>
